@@ -113,6 +113,51 @@ Dependera de donde tiene corriendo la app pero siempre sera el /docs
 http://127.0.0.1:8080/docs
 ```
 
+En el archivo main.py tenemos la siguiente informacion:
+
+```
+from fastapi import FastAPI
+
+app = FastAPI()
+
+"""
+Se deseamos cambiar el título de la aplicación, podemos hacerlo con la propiedad title de la instancia de FastAPI.
+app.title = "My API with FastAPI"
+"""
+app.title = "My API with FastAPI"
+
+
+"""
+Si deseamos adicionar alguna descripcion de proyecto tenemos
+la propiedad description de la instancia de FastAPI.
+app.description = "xXxxxxx"
+"""
+app.description = """
+Este es mi primer proyecto con FastAPI, dentro de este podemos hacer las
+prubeas de uso de la misma y aprender a componer API con FastAPI
+"""
+
+"""
+Si deseamos adicionar una versión a nuestra API, podemos hacerlo con la propiedad version de la instancia de FastAPI.
+app.version = "1.0.0"
+"""
+app.version = "1.0.0"
+
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+```
+
+Si deseasmos adicionar un seccion con el tag, solo lo que necesiamos es:
+
+```
+@app.get("/", tags=["Root"])
+def read_root():
+    return {"Hello": "World"}
+```
+
+
 ##### Para editar informacion de la documentacion tenemos
 ```
 Por favor, ir al repositorio y buscar "Adicionar informacion para la doc de la APP"
