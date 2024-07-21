@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
@@ -6,7 +7,7 @@ app = FastAPI()
 Se deseamos cambiar el título de la aplicación, podemos hacerlo con la propiedad title de la instancia de FastAPI.
 app.title = "My API with FastAPI"
 """
-app.title = "My API with FastAPI"
+app.title = "API con FastAPI"
 
 
 """
