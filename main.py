@@ -233,3 +233,24 @@ products = [
 @app.get("/", tags=["Home"])
 def read_root():
     return {"Hello": "World"}
+
+
+@app.get("/html", tags=["Home"])
+def read_root_html():
+    return HTMLResponse("<h1>My fisrt Store</h1>")
+
+
+@app.get("/api/v1/products", tags=["Products"])
+def get_products():
+    return products
+
+
+@app.get("/api/v1/products/{id}", tags=["Products"])
+def get_product_by_id(id: int):
+    for product_list in products:
+        # print(product_list)
+        for product in product_list:
+            if product["id"] == id:
+                return product
+    return {"error": "Product not found"}
+    # return id
